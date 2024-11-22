@@ -12,9 +12,8 @@ Converts a string to kebab case.
 String toKebabCase(String str) {
   return str
       .replaceAllMapped(
-          RegExp(
-            r'[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+'),
-          (Match m) => "${m[0].toLowerCase()}")
+          RegExp(r'[A-Z]+'),
+          (Match m) => "_${m[0]?.toLowerCase()}")
       .replaceAll(RegExp(r'(_|\s)+'), '-');
 }
 ```
